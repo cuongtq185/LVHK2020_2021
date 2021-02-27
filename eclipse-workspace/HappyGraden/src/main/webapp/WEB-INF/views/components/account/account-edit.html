@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+
+<head>
+
+</head>
+<body>
+	<th:block th:fragment="account-edit">
+	<div class="app-main__outer">
+                <div class="app-main__inner">
+                    <div class="app-page-title">
+                        <div class="page-title-wrapper">
+                            <div class="page-title-heading">
+                                <div class="page-title-icon">
+                                    <i class="pe-7s-car icon-gradient bg-mean-fruit"></i>
+                                </div>
+                                <div>Account Management
+                                    <!-- <div class="page-title-subheading">This is an example dashboard created using
+                                        build-in elements and components.</div> -->
+                                </div>
+                            </div>
+                            <div class="page-title-actions">
+                               
+                                <div class="d-inline-block dropdown">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
+                                        <span class="btn-icon-wrapper pr-2 opacity-7">
+                                            <i class="fa fa-business-time fa-w-20"></i>
+                                        </span>
+                                        Buttons
+                                    </button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tabs-animation">
+                        
+
+                        <div class="card mb-3">
+                            
+                            <div class="card-body">
+                                <table style="width: 100%;" id="example"
+                                    class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>UserName</th>
+                                            <th>Email</th>
+                                            <th>Create At</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr  th:if="${!pageable.data.empty or pageable.data != null}"
+												th:each="account, i : ${pageable.data}">
+                                            <td><span
+												th:text="${i.count+(pageable.limit*(pageable.page -1))}"></span></td>
+                                            <td><span th:text="${account.accountName}"></span></td>
+											<td><span th:text="${account.accountUsername}"></span></td>
+											<td><span th:text="${account.accountEmail}"></span></td>
+                                            <td><span
+												th:text=" ${account.accountCreateAt} ? ${#dates.format(account.accountCreateAt, 'dd-MM-yyyy')} "></span></td>
+                                            <td></td>
+                                        </tr>
+                                       
+                                        
+                                        
+                                    </tbody>
+                                    <tfoot>
+                                         <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>UserName</th>
+                                            <th>Email</th>
+                                            <th>Create At</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="app-wrapper-footer">
+                    <div class="app-footer">
+                        <div class="app-footer__inner">
+                            
+                            <div class="app-footer-right">
+                                <ul class="header-megamenu nav">
+                                    <li class="nav-item">
+                                        <a data-placement="top" rel="popover-focus" data-offset="300"
+                                            data-toggle="popover-custom" class="nav-link">
+                                            Copyright © 2021 All rights reserved by Happy Graden
+                                            
+                                        </a>
+                                        
+                                    </li>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	</th:block>
+
+</body>
+</html>
