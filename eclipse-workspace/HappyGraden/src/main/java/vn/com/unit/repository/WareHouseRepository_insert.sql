@@ -1,1 +1,0 @@
-insert into warehouse (product,	product_quantity) values(/*id*/,0)

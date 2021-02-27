@@ -1,3 +1,0 @@
-SELECT ROLE_ID
-FROM ROLE
-WHERE ROLE_NAME = /*role_name*/
